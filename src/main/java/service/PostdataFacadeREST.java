@@ -8,10 +8,12 @@ import entitieskh.ChitietgiaodichModel;
 import entitieskh.KhachhangttList;
 import entitieskhout.KhachhangttListChinha;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -20,12 +22,13 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
  
 @Path("postdata")
-public class PostdataFacadeREST {
+public class PostdataFacadeREST  {
     @PersistenceContext(unitName = "ServerRestKieuhoiPU2")
     private EntityManager em;
     
@@ -35,6 +38,7 @@ public class PostdataFacadeREST {
 
     
     public PostdataFacadeREST() {
+       
     }
 
   
@@ -58,11 +62,20 @@ public class PostdataFacadeREST {
 
         try {
             ChitietgiaodichModel chitietgiaodichModel = new ChitietgiaodichModel();
+            KhachhangttListChinha chinha= new KhachhangttListChinha();
             chitietgiaodichModel = gson.fromJson(input, ChitietgiaodichModel.class);
             Hamgiaophieu hamgiaophieu = new Hamgiaophieu();
             String result =hamgiaophieu.updatecmnddate(chitietgiaodichModel.getChinhanh(), chitietgiaodichModel.getSobn(),chitietgiaodichModel.getSocttuythan() , "N", chitietgiaodichModel.getIdnvchitra());
-            // Them vao giao dich khach hang . 
-            return Response.status(201).entity(result).build();
+             // Them vao giao dich khach hang .
+            KhachhangttList khachhang= new KhachhangttList();
+             
+            khachhang =timkhachhang(result);
+            String kqjson = gson.toJson(khachhang) ;
+            chinha=gson.fromJson(kqjson, KhachhangttListChinha.class);
+            String idcode=khachhang.getIdKhachhang()+"@"+chitietgiaodichModel.getIdnvchitra();
+            chinha.setIdCode(idcode);
+            chinha.setMakerId(chitietgiaodichModel.getIdnvchitra());
+            return Response.status(201).entity(gson.toJson(chinha)).build();
         } catch (SQLException ex) {
             Logger.getLogger(PostdataFacadeREST.class.getName()).log(Level.SEVERE, null, ex);
             return Response.status(201).entity(ex.getErrorCode()).build();
@@ -105,5 +118,18 @@ public class PostdataFacadeREST {
 //        // Them vao giao dich khach hang .
 //        return Response.status(201).entity(kq.toString()).build();
 //
-//    }
+//    }\
+ 
+    public KhachhangttList timkhachhang ( String id )  {
+       
+        Query query = null;
+        KhachhangttList  khachhangttList= new KhachhangttList();
+       //   em.refresh(query);
+        query=em.createNamedQuery("KhachhangttList.findByIdKhachhang", List.class);
+        query.setParameter("idKhachhang", id);
+        khachhangttList=  (KhachhangttList) query.getSingleResult();
+        return khachhangttList;
+
+    }
+    
 }
