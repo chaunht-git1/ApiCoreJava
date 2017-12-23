@@ -1,6 +1,7 @@
  
 package service;
 
+import com.google.gson.Gson;
 import entitieskh.KhachhangttList;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -21,12 +22,12 @@ import javax.ws.rs.core.MediaType;
  * @author chaunht
  */
 @Stateless
-@Path("entitieskh.khachhangttlist")
+@Path("khachhangttlist")
 public class KhachhangttListFacadeREST extends AbstractFacade<KhachhangttList> {
 
     @PersistenceContext(unitName = "ServerRestKieuhoiPU2")
     private EntityManager em;
-
+    Gson gson= new Gson();
     public KhachhangttListFacadeREST() {
         super(KhachhangttList.class);
     }
@@ -53,9 +54,9 @@ public class KhachhangttListFacadeREST extends AbstractFacade<KhachhangttList> {
 
     @GET
     @Path("{id}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public KhachhangttList find(@PathParam("id") String id) {
-        return super.find(id);
+    @Produces({ MediaType.APPLICATION_JSON})
+    public String find(@PathParam("id") String id) {
+        return gson.toJson(super.find(id));
     }
 
     @GET
