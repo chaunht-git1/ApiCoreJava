@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.1" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="ServerRestKieuhoiPU2" transaction-type="JTA">
+    <jta-data-source>java:app/DBKHLIVE70</jta-data-source>
+    <class>entitieskh.CityList</class>
+    <class>entitieskh.DiabanList</class>
+    <class>entitieskh.DistrictList</class>
+    <class>entitieskh.DmBankList</class>
+    <class>entitieskh.DmMavungDtList</class>
+    <class>entitieskh.DmQuocgiaList</class>
+    <class>entitieskh.DoitacList</class>
+    <class>entitieskh.GiaytoList</class>
+    <class>entitieskh.KhachhangttList</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+    <properties>
+    </properties>
+  </persistence-unit>
+  <persistence-unit name="ServerRestKieuhoiPU" transaction-type="JTA">
+    <jta-data-source>java:app/DBKHOUTLIVE</jta-data-source>
+    <class>entitieskhout.DmQuanlyimageHistory</class>
+    <class>entitieskhout.DmQuanlyimageToday</class>
+    <class>entitieskhout.DmXacminhHistory</class>
+    <class>entitieskhout.DmXacminhToday</class>
+    <class>entitieskhout.ImageCaptcha</class>
+    <class>entitieskhout.ImageXndoitac</class>
+    <class>entitieskhout.MessagesWeb</class>
+    <class>entitieskhout.VwDmQuanlydotImagetongWeb</class>
+    <class>entitieskhout.VwDmQuanlydotimagectietWeb</class>
+    <class>entitieskhout.VwDsNhnavienctWeb</class>
+    <class>entitieskhout.VwDsUploadImagehbWeb</class>
+    <class>entitieskhout.VwDshosoCgpSumWeb</class>
+    <class>entitieskhout.VwDshosoChuagiaophieuWeb</class>
+    <class>entitieskhout.VwDshosoDagiaophieuWeb</class>
+    <class>entitieskhout.VwDshosoDgpSumWeb</class>
+    <class>entitieskhout.VwDsnhanvienQuanhuyenweb</class>
+    <class>entitieskhout.VwDulieuTomtatGiaodichWeb</class>
+    <class>entitieskhout.VwKshbHosonvchinhaAll</class>
+    <class>entitieskhout.VwQlqhosoChuagiaoWeb</class>
+    <class>entitieskhout.VwTkTableDulieuTimnhanh</class>
+    <class>entitieskhout.VwTondongNvAllWeb</class>
+    <class>entitieskhout.VwXemdulieutkMaster</class>
+    <class>entitieskhout.VwXemdulieutkkhMaster</class>
+    <class>entitieskhout.VwSmtbUserList</class>
+    <class>entitieskhout.KhachhangttListChinha</class>
+    <class>entitieskhout.VwKhachhangttListTemp</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+    <properties>
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+    </properties>
+  </persistence-unit>
+</persistence>

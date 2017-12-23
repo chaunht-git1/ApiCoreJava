@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+ 
+<hibernate-reverse-engineering>
+  <schema-selection match-schema="KHOUT"/>
+  <table-filter match-name="IMAGE_CAPTCHA"/>
+  <table-filter match-name="DM_QUANLYIMAGE_HISTORY"/>
+  <table-filter match-name="DM_XACMINH_TODAY"/>
+  <table-filter match-name="KHACHHANGTT_LIST"/>
+  <table-filter match-name="KHACHHANGTT_LIST_TEMP"/>
+  <table-filter match-name="MESSAGES_WEB"/>
+  <table-filter match-name="IMAGE_XNDOITAC"/>
+  <table-filter match-name="DM_QUANLYIMAGE_TODAY"/>
+  <table-filter match-name="DM_XACMINH_HISTORY"/>
+  <table-filter match-name="TRANSACTION_LIST"/>
+  <table-filter match-name="DM_DIABANCHINHA_LIST"/>
+  <table-filter match-name="TK_TABLE_XEMDULIEU_TK_TEMP"/>
+</hibernate-reverse-engineering>
