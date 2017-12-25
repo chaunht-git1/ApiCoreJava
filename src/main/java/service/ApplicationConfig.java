@@ -16,6 +16,15 @@ public class ApplicationConfig extends Application {
 
     
     private void addRestResourceClasses(Set<Class<?>> resources) {
+        resources.add(service.ApicoreResource.class);
+        resources.add(service.CityListFacadeREST.class);
+        resources.add(service.DiabanListFacadeREST.class);
+        resources.add(service.DistrictListFacadeREST.class);
+        resources.add(service.DmBankListFacadeREST.class);
+        resources.add(service.KhachhangttListFacadeREST.class);
+        resources.add(service.PostdataFacadeREST.class);
+        resources.add(service.VwSmtbUserListFacadeREST.class);
+        resources.add(service.VwTondongNvAllWebFacadeREST.class);
     }
     
 }

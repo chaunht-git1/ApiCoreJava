@@ -102,66 +102,62 @@ public class KhachhangttListChinha implements Serializable {
     @Size(min = 1, max = 255)
     @Column(name = "ID_KHACHHANG")
     private String idKhachhang;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @Size(max = 255)
+    @Column(name = "DACHUANHOA")
     private String dachuanhoa;
     @Column(name = "DATE_MODIFIED")
     @Temporal(TemporalType.DATE)
     private Date dateModified;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @Size(max = 255)
+    @Column(name = "DIDONG1")
     private String didong1;
     @Size(max = 255)
+    @Column(name = "DIDONG2")
     private String didong2;
     @Size(max = 255)
     @Column(name = "DIENTHOAI_BAN")
     private String dienthoaiBan;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @Size(max = 255)
+    @Column(name = "DUYET")
     private String duyet;
     @Size(max = 255)
     @Column(name = "DV_SMS")
     private String dvSms;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Size(max = 255)
+    @Column(name = "EMAIL")
     private String email;
     @Size(max = 255)
+    @Column(name = "GHICHU")
     private String ghichu;
     @Size(max = 255)
     @Column(name = "GIAY_PLX")
     private String giayPlx;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @Size(max = 255)
+    @Column(name = "GIOITINH")
     private String gioitinh;
     @Size(max = 255)
+    @Column(name = "HO")
     private String ho;
     @Size(max = 255)
     @Column(name = "HO_KHONGDAU")
     private String hoKhongdau;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @Size(max = 255)
+    @Column(name = "HOTEN")
     private String hoten;
     @Size(max = 255)
+    @Column(name = "HUYCHI")
     private String huychi;
     @Size(max = 255)
     @Column(name = "ID_BANK")
     private String idBank;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @Size(max = 255)
     @Column(name = "ID_CHINHANH")
     private String idChinhanh;
     @Size(max = 255)
     @Column(name = "ID_LOAICTGIAODICH")
     private String idLoaictgiaodich;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @Size(max = 255)
     @Column(name = "ID_NOICAPCMND")
     private String idNoicapcmnd;
     @Size(max = 255)
@@ -185,12 +181,11 @@ public class KhachhangttListChinha implements Serializable {
     @Size(max = 255)
     @Column(name = "ID_THANHTOAN")
     private String idThanhtoan;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @Size(max = 255)
     @Column(name = "ID_VALIDITY")
     private String idValidity;
     @Size(max = 255)
+    @Column(name = "KHONGLIENLACDUOC")
     private String khonglienlacduoc;
     @Size(max = 255)
     @Column(name = "LYDO_KHONGLIENLACDUOC")
@@ -201,15 +196,14 @@ public class KhachhangttListChinha implements Serializable {
     @Size(max = 255)
     @Column(name = "MA_LYDOKHONGLIENLACDUOC")
     private String maLydokhonglienlacduoc;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @Size(max = 255)
     @Column(name = "MAKER_ID")
     private String makerId;
     @Size(max = 255)
     @Column(name = "MOTATHEM_KHACHHANG")
     private String motathemKhachhang;
     @Size(max = 255)
+    @Column(name = "NAMSINH")
     private String namsinh;
     @Column(name = "NGAY_CHUANHOA")
     @Temporal(TemporalType.DATE)
@@ -217,10 +211,9 @@ public class KhachhangttListChinha implements Serializable {
     @Column(name = "NGAY_KHOITAO")
     @Temporal(TemporalType.DATE)
     private Date ngayKhoitao;
+    @Column(name = "NGAYCAP")
     @Temporal(TemporalType.DATE)
     private Date ngaycap;
-    @Basic(optional = false)
-    @NotNull
     @Column(name = "NGAYCAP_CMND")
     @Temporal(TemporalType.DATE)
     private Date ngaycapCmnd;
@@ -230,15 +223,16 @@ public class KhachhangttListChinha implements Serializable {
     @Column(name = "NGAYCAP_PASSPORT")
     @Temporal(TemporalType.DATE)
     private Date ngaycapPassport;
+    @Column(name = "NGAYDUYET")
     @Temporal(TemporalType.DATE)
     private Date ngayduyet;
+    @Column(name = "NGAYSINH")
     @Temporal(TemporalType.DATE)
     private Date ngaysinh;
     @Size(max = 255)
+    @Column(name = "PASSPORT")
     private String passport;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @Size(max = 255)
     @Column(name = "QUAN_HIENTAI")
     private String quanHientai;
     @Size(max = 255)
@@ -247,41 +241,39 @@ public class KhachhangttListChinha implements Serializable {
     @Size(max = 255)
     @Column(name = "RECORD_NOTE")
     private String recordNote;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @Size(max = 255)
+    @Column(name = "SOCHUNGMINH")
     private String sochungminh;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @Size(max = 255)
     @Column(name = "SONHA_HIENTAI")
     private String sonhaHientai;
     @Size(max = 255)
     @Column(name = "SONHA_THUONGTRU")
     private String sonhaThuongtru;
     @Size(max = 255)
+    @Column(name = "SOTAIKHOAN")
     private String sotaikhoan;
+    @Column(name = "STTKH")
     private BigInteger sttkh;
     @Size(max = 255)
+    @Column(name = "TEN")
     private String ten;
     @Size(max = 255)
     @Column(name = "TEN_KHONGDAU")
     private String tenKhongdau;
     @Size(max = 255)
+    @Column(name = "THANGSINH")
     private String thangsinh;
     @Size(max = 255)
     @Column(name = "THANHPHO_THUONGTRU")
     private String thanhphoThuongtru;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @Size(max = 255)
     @Column(name = "TP_HIENTAI")
     private String tpHientai;
     @Size(max = 255)
+    @Column(name = "VIPHAMAML")
     private String viphamaml;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 1)
+    @Size(max = 1)
     @Column(name = "ID_ACTIVE")
     private String idActive;
     @Id
@@ -290,16 +282,13 @@ public class KhachhangttListChinha implements Serializable {
     @Size(min = 1, max = 100)
     @Column(name = "ID_CODE")
     private String idCode;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 40)
+    @Size(max = 40)
+    @Column(name = "SOBN")
     private String sobn;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 40)
+    @Size(max = 40)
+    @Column(name = "SOPHIEU")
     private String sophieu;
-    @Basic(optional = false)
-    @NotNull
+    @Column(name = "STT")
     private BigInteger stt;
     @Size(max = 500)
     @Column(name = "SOBN_HIS")
@@ -312,27 +301,9 @@ public class KhachhangttListChinha implements Serializable {
         this.idCode = idCode;
     }
 
-    public KhachhangttListChinha(String idCode, String idKhachhang, String dachuanhoa, String didong1, String duyet, String gioitinh, String hoten, String idChinhanh, String idNoicapcmnd, String idValidity, String makerId, Date ngaycapCmnd, String quanHientai, String sochungminh, String sonhaHientai, String tpHientai, String idActive, String sobn, String sophieu, BigInteger stt) {
+    public KhachhangttListChinha(String idCode, String idKhachhang) {
         this.idCode = idCode;
         this.idKhachhang = idKhachhang;
-        this.dachuanhoa = dachuanhoa;
-        this.didong1 = didong1;
-        this.duyet = duyet;
-        this.gioitinh = gioitinh;
-        this.hoten = hoten;
-        this.idChinhanh = idChinhanh;
-        this.idNoicapcmnd = idNoicapcmnd;
-        this.idValidity = idValidity;
-        this.makerId = makerId;
-        this.ngaycapCmnd = ngaycapCmnd;
-        this.quanHientai = quanHientai;
-        this.sochungminh = sochungminh;
-        this.sonhaHientai = sonhaHientai;
-        this.tpHientai = tpHientai;
-        this.idActive = idActive;
-        this.sobn = sobn;
-        this.sophieu = sophieu;
-        this.stt = stt;
     }
 
     public String getIdKhachhang() {
