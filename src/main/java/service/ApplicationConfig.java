@@ -23,6 +23,7 @@ public class ApplicationConfig extends Application {
         resources.add(service.DmBankListFacadeREST.class);
         resources.add(service.KhachhangttListFacadeREST.class);
         resources.add(service.PostdataFacadeREST.class);
+        resources.add(service.VwKhachhangttListTempFacadeREST.class);
         resources.add(service.VwSmtbUserListFacadeREST.class);
         resources.add(service.VwTondongNvAllWebFacadeREST.class);
     }

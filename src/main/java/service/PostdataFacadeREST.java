@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import entitieskh.ChitietgiaodichModel;
 import entitieskh.KhachhangttList;
 import entitieskhout.KhachhangttListChinha;
+import entitieskhout.VwKhachhangttListTemp_;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -84,8 +85,8 @@ public class PostdataFacadeREST  {
             chinha=gson.fromJson(kqjson, KhachhangttListChinha.class);
             String idcode=khachhang.getIdKhachhang()+"@"+chitietgiaodichModel.getIdnvchitra();
             chinha.setIdCode(idcode);
-            chinha.setDidong1("0933775836");
             chinha.setMakerId(chitietgiaodichModel.getIdnvchitra());
+            chinha.setSobn(chitietgiaodichModel.getSobn());
             Boolean kq=themthongtinkhchinha(chinha);
             if(kq)
             {
@@ -103,43 +104,8 @@ public class PostdataFacadeREST  {
 
     }
     
-//    @POST
-//    @Path("/taokhgiaodich")
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    public Response createKhachhangTemp(String input) {
-//        
-//        ChitietgiaodichModel chitietgiaodichModel = new ChitietgiaodichModel();
-//        chitietgiaodichModel = gson.fromJson(input, ChitietgiaodichModel.class);
-//        KhachhangttListChinhaFunc chinhaFacadeREST= new KhachhangttListChinhaFunc();
-//        KhachhangttListFacadeREST facadeREST= new KhachhangttListFacadeREST();
-//        KhachhangttList khachhangttList = new KhachhangttList();
-//        //String kq1=facadeREST.findRest(chitietgiaodichModel.getMakhachhang());
-//        KhachhangttListChinha  listChinha = new KhachhangttListChinha();
-//      //  String idcode=chitietgiaodichModel.getMakhachhang()+chitietgiaodichModel.getIdnvchitra();
-//       // listChinha.setIdKhachhang(chitietgiaodichModel.getMakhachhang());
-//       // listChinha.setIdCode(idcode);
-//        Boolean kq=chinhaFacadeREST.themthongtinkhchinha(listChinha);
-//        // chinhaFacadeREST.create(entity);
-//        // Them vao giao dich khach hang .
-//        return Response.status(201).entity(kq.toString()).build();
-//
-//    }
-    
-//     @POST
-//    @Path("/capnhatthongtinkh")
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    public Response cnhatthongtinkh(String input) {
-//        
-//        KhachhangttListChinhaFunc chinhaFacadeREST= new KhachhangttListChinhaFunc();
-//        KhachhangttListChinha  listChinha = new KhachhangttListChinha();
-//        listChinha = gson.fromJson(input, KhachhangttListChinha.class);
-//        Boolean kq=chinhaFacadeREST.capnhatthongtinkh(listChinha);
-//        // chinhaFacadeREST.create(entity);
-//        // Them vao giao dich khach hang .
-//        return Response.status(201).entity(kq.toString()).build();
-//
-//    }\
  
+  
     public KhachhangttList timkhachhang ( String id )  {
        
         Query query = null;
@@ -157,7 +123,6 @@ public class PostdataFacadeREST  {
             // KhachhangttListChinha khachhangttListTemp = emkhout.getReference(KhachhangttListChinha.class, khachhang.getIdCode());
          try {
               utx.begin();
-              //em.getTransaction().begin();
               emkhout.merge(khachhang);
               utx.commit();
  
