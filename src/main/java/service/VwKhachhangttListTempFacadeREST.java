@@ -11,6 +11,7 @@ import javax.ejb.Stateless;
 import javax.naming.NamingException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.UserTransaction;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -52,7 +53,16 @@ public class VwKhachhangttListTempFacadeREST extends AbstractFacade<VwKhachhangt
             chinha=emkhout.find(KhachhangttListChinha.class, khachhangttListTemp.getIdCode());
             // Cap nhat thong tin  .
             chinha.setDachuanhoa("Y");
+            chinha.setHoten(khachhangttListTemp.getHoten());
+            chinha.setIdActive("Y");
+            chinha.setSonhaHientai(khachhangttListTemp.getSonhaHientai());
+            chinha.setDidong1(khachhangttListTemp.getDidong1());
+            chinha.setTpHientai(khachhangttListTemp.getTpHientai());
+            chinha.setQuanHientai(khachhangttListTemp.getQuanHientai());
+            chinha.setGioitinh(khachhangttListTemp.getGioitinh());
+            chinha.setNgaycapCmnd(khachhangttListTemp.getNgaycapCmnd());
             chinha.setSochungminh(khachhangttListTemp.getSochungminh());
+            chinha.setIdNoicapcmnd(khachhangttListTemp.getIdNoicapcmnd());
              // Them vao giao dich khach hang .
             Boolean kq;
             try {
@@ -107,12 +117,17 @@ public class VwKhachhangttListTempFacadeREST extends AbstractFacade<VwKhachhangt
         return gson.toJson(super.findAll());
     }
     
+    
     @GET
-    @Path("user/{userid}")
+    @Path("user/{userid}/{dch}")
     @Produces({ MediaType.APPLICATION_JSON})
-    public String findAllUser(@PathParam("userid")  String userid) {
+    public String findAllUser(@PathParam("userid")  String userid ,@PathParam("dch")  String dch ) {
         
-        return gson.toJson(super.findAll());
+       Query query= emkhout.createNamedQuery("VwKhachhangttListTemp.findByMakerIdDch");
+       query.setParameter("makerId", userid);
+       query.setParameter("dachuanhoa", dch);
+       String kq =gson.toJson(query.getResultList());
+       return kq;
         
     }
   

@@ -39,9 +39,7 @@ public class PostdataFacadeREST  {
     @PersistenceContext(unitName = "ServerRestKieuhoiPU")
     private EntityManager emkhout;
 
-    @Resource
-    UserTransaction utx;
- 
+
     Gson gson= new Gson(); 
     @Context
     private UriInfo context;
@@ -87,7 +85,14 @@ public class PostdataFacadeREST  {
             chinha.setIdCode(idcode);
             chinha.setMakerId(chitietgiaodichModel.getIdnvchitra());
             chinha.setSobn(chitietgiaodichModel.getSobn());
-            Boolean kq=themthongtinkhchinha(chinha);
+            Boolean kq=false;
+            try {
+                emkhout.merge(chinha);
+                kq=true ;
+            } catch (Exception e) {
+                kq=false;
+            }
+ 
             if(kq)
             {
                 chuoitrave=gson.toJson(chinha);
@@ -107,34 +112,21 @@ public class PostdataFacadeREST  {
  
   
     public KhachhangttList timkhachhang ( String id )  {
-       
-        Query query = null;
-        KhachhangttList  khachhangttList= new KhachhangttList();
-       //   em.refresh(query);
-        query=em.createNamedQuery("KhachhangttList.findByIdKhachhang", List.class);
-        query.setParameter("idKhachhang", id);
-        khachhangttList=  (KhachhangttList) query.getSingleResult();
-        return khachhangttList;
+        try {
+            Query query = null;
+            KhachhangttList khachhangttList = new KhachhangttList();
+            //   em.refresh(query);
+            query = em.createNamedQuery("KhachhangttList.findByIdKhachhang", List.class);
+            query.setParameter("idKhachhang", id);
+            khachhangttList = (KhachhangttList) query.getSingleResult();
+            return khachhangttList;
 
+        } catch (Exception e) {
+            return null;
+        }
+     
     }
     
-     public  boolean themthongtinkhchinha(KhachhangttListChinha khachhang) {
-       //Tao thong tin cap nhat
-            // KhachhangttListChinha khachhangttListTemp = emkhout.getReference(KhachhangttListChinha.class, khachhang.getIdCode());
-         try {
-              utx.begin();
-              emkhout.merge(khachhang);
-              utx.commit();
  
-              return true;
-         } catch (Exception e) {
-              return false;
-         }
-        
-                 
-        
-         }
-
-  
     
 }

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+ 
 package entitieskhout;
 
 import java.io.Serializable;
@@ -31,7 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "VwKhachhangttListTemp.findAll", query = "SELECT v FROM VwKhachhangttListTemp v")
     , @NamedQuery(name = "VwKhachhangttListTemp.findByIdCode", query = "SELECT v FROM VwKhachhangttListTemp v WHERE v.idCode = :idCode")
-    , @NamedQuery(name = "VwKhachhangttListTemp.findByUserId", query = "SELECT v FROM VwKhachhangttListTemp v WHERE v.userId = :userId")
+    , @NamedQuery(name = "VwKhachhangttListTemp.findByUserId", query = "SELECT v FROM VwKhachhangttListTemp v WHERE v.userId = :userId   ")
     , @NamedQuery(name = "VwKhachhangttListTemp.findByShshis", query = "SELECT v FROM VwKhachhangttListTemp v WHERE v.shshis = :shshis")
     , @NamedQuery(name = "VwKhachhangttListTemp.findBySobn", query = "SELECT v FROM VwKhachhangttListTemp v WHERE v.sobn = :sobn")
     , @NamedQuery(name = "VwKhachhangttListTemp.findByIdKhachhang", query = "SELECT v FROM VwKhachhangttListTemp v WHERE v.idKhachhang = :idKhachhang")
@@ -65,6 +61,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "VwKhachhangttListTemp.findByViphamaml", query = "SELECT v FROM VwKhachhangttListTemp v WHERE v.viphamaml = :viphamaml")
     , @NamedQuery(name = "VwKhachhangttListTemp.findByHuychi", query = "SELECT v FROM VwKhachhangttListTemp v WHERE v.huychi = :huychi")
     , @NamedQuery(name = "VwKhachhangttListTemp.findByMakerId", query = "SELECT v FROM VwKhachhangttListTemp v WHERE v.makerId = :makerId")
+    , @NamedQuery(name = "VwKhachhangttListTemp.findByMakerIdDch", query = "SELECT v FROM VwKhachhangttListTemp v WHERE v.makerId = :makerId AND v.dachuanhoa=:dachuanhoa")
     , @NamedQuery(name = "VwKhachhangttListTemp.findByNgayKhoitao", query = "SELECT v FROM VwKhachhangttListTemp v WHERE v.ngayKhoitao = :ngayKhoitao")
     , @NamedQuery(name = "VwKhachhangttListTemp.findByDateModified", query = "SELECT v FROM VwKhachhangttListTemp v WHERE v.dateModified = :dateModified")
     , @NamedQuery(name = "VwKhachhangttListTemp.findByDuyet", query = "SELECT v FROM VwKhachhangttListTemp v WHERE v.duyet = :duyet")
