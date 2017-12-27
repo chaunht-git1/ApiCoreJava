@@ -41,7 +41,6 @@ entitieskhout\VwXemdulieutkkhMaster.class
 entitieskhout\VwDshosoChuagiaophieuWeb_.class
 service\ApplicationConfig.class
 entitieskhout\VwDshosoCgpSumWeb_.class
-service\VwKhachhangttListTempFacadeREST.class
 entitieskhout\DmXacminhHistory.class
 entitieskhout\VwKhachhangttListTemp_.class
 entitieskhout\VwXemdulieutkMaster.class
