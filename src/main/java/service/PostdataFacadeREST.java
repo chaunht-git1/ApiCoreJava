@@ -7,6 +7,7 @@ import entitieskh.ChitietgiaodichModel;
 import entitieskh.KhachhangttList;
 import entitieskhout.KhachhangttListChinha;
 import entitieskhout.VwKhachhangttListTemp_;
+import entitieskhout.VwTondongNvAllWeb;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -38,6 +39,9 @@ public class PostdataFacadeREST  {
     
     @PersistenceContext(unitName = "ServerRestKieuhoiPU")
     private EntityManager emkhout;
+    
+    @Resource
+    UserTransaction utx;
 
 
     Gson gson= new Gson(); 
@@ -73,35 +77,46 @@ public class PostdataFacadeREST  {
             ChitietgiaodichModel chitietgiaodichModel = new ChitietgiaodichModel();
             KhachhangttListChinha chinha= new KhachhangttListChinha();
             chitietgiaodichModel = gson.fromJson(input, ChitietgiaodichModel.class);
+          //  String idcodekieuhoi = chitietgiaodichModel.getChinhanh()+chitietgiaodichModel.getSophieu()+chitietgiaodichModel.getStt().toString();
+            //Kiem tra thong tin trong du lieu , neu trung thi khoi luu . 
+          //  VwTondongNvAllWeb allWeb=new VwTondongNvAllWeb();
+         //   allWeb=emkhout.find(VwTondongNvAllWeb.class, idcodekieuhoi);
             Hamgiaophieu hamgiaophieu = new Hamgiaophieu();
             String result =hamgiaophieu.updatecmnddate(chitietgiaodichModel.getChinhanh(), chitietgiaodichModel.getSobn(),chitietgiaodichModel.getSocttuythan() , "N", chitietgiaodichModel.getIdnvchitra());
-             // Them vao giao dich khach hang .
-            KhachhangttList khachhang= new KhachhangttList();
-             
-            khachhang =timkhachhang(result);
-            String kqjson = gson.toJson(khachhang) ;
-            chinha=gson.fromJson(kqjson, KhachhangttListChinha.class);
-            String idcode=khachhang.getIdKhachhang()+"@"+chitietgiaodichModel.getIdnvchitra();
-            chinha.setIdCode(idcode);
-            chinha.setMakerId(chitietgiaodichModel.getIdnvchitra());
-            chinha.setSobn(chitietgiaodichModel.getSobn());
-            Boolean kq=false;
-            try {
-                emkhout.merge(chinha);
-                kq=true ;
-            } catch (Exception e) {
-                kq=false;
-            }
- 
-            if(kq)
-            {
-                chuoitrave=gson.toJson(chinha);
-            }
-            else
-            {
-                chuoitrave="F";
-            }   
+            String idcode=result+"@"+chitietgiaodichModel.getIdnvchitra(); 
+            chinha=emkhout.find(KhachhangttListChinha.class, idcode);
+           // Them vao giao dich khach hang .
+           if(!chinha.getIdCode().isEmpty()  && chinha.getIdCode()!=null)
+           {
+              chuoitrave=gson.toJson(chinha);
+           }
+           else{
+               KhachhangttList khachhang = new KhachhangttList();
+               khachhang = timkhachhang(result);
+               String kqjson = gson.toJson(khachhang);
+               chinha = gson.fromJson(kqjson, KhachhangttListChinha.class);
+
+               chinha.setIdCode(idcode);
+               chinha.setMakerId(chitietgiaodichModel.getIdnvchitra());
+               chinha.setSobn(chitietgiaodichModel.getSobn());
+               Boolean kq = false;
+               try {
+                   utx.begin();
+                   emkhout.merge(chinha);
+                   utx.commit();
+                   kq = true;
+               } catch (Exception e) {
+                   kq = false;
+               }
+               if (kq) {
+                   chuoitrave = gson.toJson(chinha);
+               } else {
+                   chuoitrave = "F";
+               }
+           }
+
             return Response.status(201).entity(gson.toJson(chinha)).build();
+            
         } catch (SQLException ex) {
             Logger.getLogger(PostdataFacadeREST.class.getName()).log(Level.SEVERE, null, ex);
             return Response.status(201).entity(ex.getErrorCode()).build();

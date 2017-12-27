@@ -6,7 +6,6 @@ import com.google.gson.Gson;
 import entitieskhout.VwTondongNvAllWeb;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
