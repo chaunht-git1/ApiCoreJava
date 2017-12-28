@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-  <persistence-unit name="ServerRestKieuhoiPU2" transaction-type="JTA">
+  <persistence-unit name="KH" transaction-type="JTA">
     <jta-data-source>java:app/KH35TEST</jta-data-source>
     <class>entitieskh.CityList</class>
     <class>entitieskh.DiabanList</class>
@@ -16,7 +16,7 @@
     <properties>
     </properties>
   </persistence-unit>
-  <persistence-unit name="ServerRestKieuhoiPU" transaction-type="JTA">
+  <persistence-unit name="KHOUT" transaction-type="JTA">
     <jta-data-source>java:app/KHOUT35TEST</jta-data-source>
     <class>entitieskhout.DmQuanlyimageHistory</class>
     <class>entitieskhout.DmQuanlyimageToday</class>

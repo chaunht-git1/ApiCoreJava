@@ -1,6 +1,7 @@
  
 package service;
 
+import ConnectBean.Provider;
 import HamXuLy.Hamgiaophieu;
 import com.google.gson.Gson;
 import entitieskhout.KhachhangttListChinha;
@@ -29,7 +30,7 @@ import javax.ws.rs.core.Response;
 @Path("vwkhachhangttlisttemp")
 public class VwKhachhangttListTempFacadeREST extends AbstractFacade<VwKhachhangttListTemp> {
 
-    @PersistenceContext(unitName = "ServerRestKieuhoiPU")
+    @PersistenceContext(unitName = Provider.DADABASEVW)
     private EntityManager emkhout;
     
  

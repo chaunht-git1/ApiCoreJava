@@ -1,6 +1,7 @@
  
 package service;
 
+import ConnectBean.Provider;
 import LocalModel.DshosoMg;
 import com.google.gson.Gson;
 import entitieskhout.VwTondongNvAllWeb;
@@ -23,7 +24,7 @@ import javax.ws.rs.Produces;
 @Stateless
 @Path("vwtondongnvallweb")
 public class VwTondongNvAllWebFacadeREST extends AbstractFacade<VwTondongNvAllWeb> {
-    @PersistenceContext(unitName = "ServerRestKieuhoiPU")
+    @PersistenceContext(unitName = Provider.DADABASEVW)
     private EntityManager em;
     Gson gson= new Gson(); 
     public VwTondongNvAllWebFacadeREST() {

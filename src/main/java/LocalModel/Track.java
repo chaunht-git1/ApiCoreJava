@@ -1,29 +1,121 @@
 package LocalModel;
-
+ 
+import ConnectBean.Provider;
 public class Track {
-
+ 
 	String title;
-	String singer;
+	String urlkhout;
+        String url;
+        String connect_url;
+        String tenhethong;
+        String username;
+        String password;
+        String driver;
+        String datadasevw;
+        String datadasekh;
+        
 
-	public String getTitle() {
-		return title;
-	}
+    public Track(String title, String urlkhout, String url ) {
+        
+        this.title = title;
+        this.urlkhout = urlkhout;
+        this.url = url;
+        this.connect_url="connect_url-"+Provider.CONNECTION_URL;
+        this.tenhethong="Ten He Thong-"+Provider.TENHETHONG;
+        this.username="username-"+Provider.USERNAME;
+        this.password=Provider.PASSWORD;
+        this.driver=Provider.DRIVER;
+        this.datadasevw="DADABASEVW-"+Provider.DADABASEVW;
+        this.datadasekh="DADABASEKH-"+Provider.DADABASEKH;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public String getDriver() {
+        return driver;
+    }
 
-	public String getSinger() {
-		return singer;
-	}
+    public void setDriver(String driver) {
+        this.driver = driver;
+    }
 
-	public void setSinger(String singer) {
-		this.singer = singer;
-	}
+    public String getDatadasevw() {
+        return datadasevw;
+    }
 
-	@Override
-	public String toString() {
-		return "Track [title=" + title + ", singer=" + singer + "]";
-	}
+    public void setDatadasevw(String datadasevw) {
+        this.datadasevw = datadasevw;
+    }
+
+    public String getDatadasekh() {
+        return datadasekh;
+    }
+
+    public void setDatadasekh(String datadasekh) {
+        this.datadasekh = datadasekh;
+    }
+
+    
+    
+    public String getConnect_url() {
+        return connect_url;
+    }
+
+    public void setConnect_url(String connect_url) {
+        this.connect_url = connect_url;
+    }
+
+    public String getTenhethong() {
+        return tenhethong;
+    }
+
+    public void setTenhethong(String tenhethong) {
+        this.tenhethong = tenhethong;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+        
+        
+     
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getUrlkhout() {
+        return urlkhout;
+    }
+
+    public void setUrlkhout(String urlkhout) {
+        this.urlkhout = urlkhout;
+    }
+
+  
+
+
+	 
 
 }

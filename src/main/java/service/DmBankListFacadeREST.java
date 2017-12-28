@@ -1,6 +1,7 @@
  
 package service;
 
+import ConnectBean.Provider;
 import com.google.gson.Gson;
 import entitieskh.DmBankList;
 import java.util.List;
@@ -16,14 +17,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
-/**
- *
- * @author TamChauDAMTC
- */
+ 
 @Stateless
 @Path("danhmuc.dmbanklist")
 public class DmBankListFacadeREST extends AbstractFacade<DmBankList> {
-    @PersistenceContext(unitName = "ServerRestKieuhoiPU2")
+    @PersistenceContext(unitName = Provider.DADABASEKH)
     private EntityManager em;
     Gson gson= new Gson(); 
     public DmBankListFacadeREST() {

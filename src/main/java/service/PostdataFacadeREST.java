@@ -1,13 +1,12 @@
  
 package service;
 
+import ConnectBean.Provider;
 import HamXuLy.Hamgiaophieu;
 import com.google.gson.Gson;
 import entitieskh.ChitietgiaodichModel;
 import entitieskh.KhachhangttList;
 import entitieskhout.KhachhangttListChinha;
-import entitieskhout.VwKhachhangttListTemp_;
-import entitieskhout.VwTondongNvAllWeb;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -34,10 +33,10 @@ import javax.transaction.UserTransaction;
     
 public class PostdataFacadeREST  {
 
-    @PersistenceContext(unitName = "ServerRestKieuhoiPU2")
+    @PersistenceContext(unitName = Provider.DADABASEKH)
     private EntityManager em;
     
-    @PersistenceContext(unitName = "ServerRestKieuhoiPU")
+    @PersistenceContext(unitName = Provider.DADABASEVW)
     private EntityManager emkhout;
     
     @Resource
@@ -84,9 +83,19 @@ public class PostdataFacadeREST  {
             Hamgiaophieu hamgiaophieu = new Hamgiaophieu();
             String result =hamgiaophieu.updatecmnddate(chitietgiaodichModel.getChinhanh(), chitietgiaodichModel.getSobn(),chitietgiaodichModel.getSocttuythan() , "N", chitietgiaodichModel.getIdnvchitra());
             String idcode=result+"@"+chitietgiaodichModel.getIdnvchitra(); 
-            chinha=emkhout.find(KhachhangttListChinha.class, idcode);
+            String idcodecn=null;
+            chinha = emkhout.find(KhachhangttListChinha.class, idcode);
+            try {
+                idcodecn = chinha.getIdCode();
+            } catch (Exception e) {
+                idcodecn = null;
+            }
+    
+                // Them vao giao dich khach hang .
+               
+            
            // Them vao giao dich khach hang .
-           if(!chinha.getIdCode().isEmpty()  && chinha.getIdCode()!=null)
+           if(idcodecn!=null)
            {
               chuoitrave=gson.toJson(chinha);
            }

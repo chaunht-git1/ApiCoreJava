@@ -1,6 +1,7 @@
  
 package service;
 
+import ConnectBean.Provider;
 import com.google.gson.Gson;
 import entitieskh.DistrictList;
 import java.util.List;
@@ -20,7 +21,7 @@ import javax.ws.rs.Produces;
 @Stateless
 @Path("districtlist")
 public class DistrictListFacadeREST extends AbstractFacade<DistrictList> {
-    @PersistenceContext(unitName = "ServerRestKieuhoiPU2")
+    @PersistenceContext(unitName = Provider.DADABASEKH)
     private EntityManager em;
     Gson gson= new Gson(); 
 

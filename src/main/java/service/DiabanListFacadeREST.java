@@ -1,6 +1,7 @@
  
 package service;
 
+import ConnectBean.Provider;
 import com.google.gson.Gson;
 import entitieskh.DiabanList;
 import java.util.List;
@@ -20,9 +21,10 @@ import javax.ws.rs.Produces;
 @Stateless
 @Path("diabanlist")
 public class DiabanListFacadeREST extends AbstractFacade<DiabanList> {
-    @PersistenceContext(unitName = "ServerRestKieuhoiPU2")
+    @PersistenceContext(unitName = Provider.DADABASEKH)
     private EntityManager em;
     Gson gson= new Gson(); 
+    
     public DiabanListFacadeREST() {
         super(DiabanList.class);
     }

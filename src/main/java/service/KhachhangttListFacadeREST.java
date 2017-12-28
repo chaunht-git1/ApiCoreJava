@@ -1,6 +1,7 @@
  
 package service;
 
+import ConnectBean.Provider;
 import com.google.gson.Gson;
 import entitieskh.KhachhangttList;
 import java.util.List;
@@ -25,8 +26,9 @@ import javax.ws.rs.core.MediaType;
 @Path("khachhangttlist")
 public class KhachhangttListFacadeREST extends AbstractFacade<KhachhangttList> {
 
-    @PersistenceContext(unitName = "ServerRestKieuhoiPU2")
+    @PersistenceContext(unitName = Provider.DADABASEKH)
     private EntityManager em;
+    
     Gson gson= new Gson();
     public KhachhangttListFacadeREST() {
         super(KhachhangttList.class);

@@ -38,6 +38,7 @@ HamXuLy\Hamxulytimkiem.class
 service\AbstractFacade.class
 entitieskhout\ImageCaptcha_.class
 entitieskhout\VwXemdulieutkkhMaster.class
+service\SysteminforResource.class
 entitieskhout\VwDshosoChuagiaophieuWeb_.class
 service\ApplicationConfig.class
 entitieskhout\VwDshosoCgpSumWeb_.class

@@ -5,6 +5,7 @@
  */
 package service;
 
+import ConnectBean.Provider;
 import com.google.gson.Gson;
 import entitieskhout.VwSmtbUserList;
 import java.util.List;
@@ -29,7 +30,7 @@ import javax.ws.rs.core.MediaType;
 @Path("vwsmtbuserlist")
 public class VwSmtbUserListFacadeREST extends AbstractFacade<VwSmtbUserList> {
 
-    @PersistenceContext(unitName = "ServerRestKieuhoiPU")
+    @PersistenceContext(unitName =Provider.DADABASEVW)
     private EntityManager em;
      Gson gson= new Gson(); 
     public VwSmtbUserListFacadeREST() {

@@ -1,6 +1,7 @@
  
 package HamXuLy;
 
+import ConnectBean.Provider;
 import entitieskhout.KhachhangttListChinha;
 import entitieskhout.VwKhachhangttListTemp;
 import javax.persistence.EntityManager;
@@ -9,7 +10,7 @@ import javax.persistence.Query;
  
 public class KhachhangttListChinhaFunc {
 
-    @PersistenceContext(unitName = "ServerRestKieuhoiPU")
+    @PersistenceContext(unitName = Provider.DADABASEVW)
     private EntityManager em;
  
 //          List<VwDmQuanlydotImagetongWeb> dsKq=new ArrayList<>();
